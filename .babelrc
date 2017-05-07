@@ -1,9 +1,9 @@
 {
-  "presets": ["react", "es2015"],
-  //在开发的时候才启用HMR和Catch Error
+  "presets": ["es2015", "react"],
+  "plugins": ["transform-object-rest-spread"],
   "env": {
-   "development": {
-     "presets": ["react-hmre"]
-   }
+    "development": {
+      "presets": ["react-hmre"]
+    }
   }
 }

@@ -40,11 +40,16 @@ module.exports= {
         test: /\.jsx?$/,
         loaders: ['babel'],
         include: APP_PATH
-      }    ]
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      }
+    ]
   },
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'Profile app'
+      title: 'Deskmark app'
     })
   ]
 }

@@ -1,8 +1,22 @@
+/*
+ * @file component List
+ */
+
 import React, { PropTypes } from 'react';
 import ListItem from '../ListItem';
 
-function List({ items }) {
-  const itemsContent = items.map((item) => <ListItem item={item} key={item.id} />);
+
+function List({ items, onSelect }) {
+  const itemsContent = items.map(
+    item => (
+      <ListItem
+        item={item}
+        key={item.id}
+        onClick={() => onSelect(item.id)}
+      />
+    )
+  );
+
   return (
     <div className="list-component">
       {itemsContent}
@@ -11,7 +25,7 @@ function List({ items }) {
 }
 
 List.propTypes = {
-  items: PropTypes.array.isRequired
+  items: PropTypes.array.isRequired,
+  onSelect: PropTypes.func.isRequired,
 };
-
 export default List;
