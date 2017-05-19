@@ -2,13 +2,26 @@
  * @file app main file
  */
 
-import 'babel-polyfill';
+import React from 'react';
+import { render } from 'react-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
+
+import Deskmark from 'components/Deskmark';
+import rootRedurer from 'reducers';
+
 import 'bootstrap/scss/bootstrap.scss';
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Deskmark from 'components/Deskmark';
+const store = applyMiddleware(
+  thunkMiddleware
+)(createStore)(rootRedurer);
 
 const app = document.createElement('div');
 document.body.appendChild(app);
-ReactDOM.render(<Deskmark />, app);
+render(
+  <Provider store={store}>
+    <Deskmark />
+  </Provider>,
+  app
+);
