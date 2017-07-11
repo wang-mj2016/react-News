@@ -22,13 +22,14 @@ class Deskmark extends React.Component {
   componentDidMount() {
     this.props.actions.fetchEntryList();
   }
- 
+
   render() {
     // const state = this.props.state;
     // const actions = this.props.actions;
-    // console.log(actions);
+    // console.log('this.props', this.props);
     const { state, actions } = this.props;
     const { isEditing, selectedId } = state.editor;
+    // console.log('isEditing', isEditing);
     const items = state.items;
     const item = items.find(
       ({ id }) => id === selectedId
@@ -57,7 +58,7 @@ class Deskmark extends React.Component {
         {<div className="container">
           <div className="row">
             <div className="col-md-4 list-group">
-              <CreateBar onClick={actions.cerateNewEntry} />
+              <CreateBar onClick={actions.createNewEntry} />
               <List
                 items={items}
                 onSelect={actions.selectEntry}

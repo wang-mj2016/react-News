@@ -8,7 +8,7 @@ const initialState = {
 export default function editor(state = initialState, action) {
   switch (action.type) {
     case ActionTypes.SELECT_ENTRY:
-      return Object.assign({}, state, { selectedId: action.id });
+      return Object.assign({}, state, { selectedId: action.id, isEditing: false });
     case ActionTypes.UPDATE_SAVED_ENTRY:
       return Object.assign({}, state, { selectedId: action.id, isEditing: false });
     case ActionTypes.CREATE_NEW_ENTRY:
